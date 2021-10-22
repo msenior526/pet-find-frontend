@@ -19,11 +19,17 @@ class Signup extends Component {
         })
     }
 
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        }, () => console.log(this.state))
+    }
+
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label for='name'>NAME</label>
+                    <label htmlFor='name'>NAME</label>
                     <input type='text' name='name' value={this.state.name} onChange={this.handleChange}></input>
 
                     <label for='email'>EMAIL</label>
