@@ -3,6 +3,8 @@ import Pets from './containers/Pets';
 import Navbar from './containers/NavBar';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import React, { Component } from 'react';
+import Login from './containers/Login';
+import Signup from './containers/Signup';
 
 class App extends Component {
   render() {
