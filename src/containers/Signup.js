@@ -10,7 +10,20 @@ class Signup extends Component {
 
     render() {
         return (
-            <div></div>
+            <div>
+                <form>
+                    <label for='name'>NAME</label>
+                    <input type='text' value={this.state.name}></input>
+                    <label for='email'>EMAIL</label>
+                    <input type='email' value={this.state.email}></input>
+                    <label for='username'>USERNAME</label>
+                    <input type='text' value={this.state.username}></input>
+                    <label for='location'>LOCATION</label>
+                    <input type='text' value={this.state.location}></input>
+                    <label for='password'>PASSWORD</label>
+                    <input type='password'></input>
+                </form>
+            </div>
         )
     }
 }
