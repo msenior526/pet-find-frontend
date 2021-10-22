@@ -9,3 +9,9 @@ export function addPet(pet) {
         }
     }
 }
+
+export function fetchPets() {
+    return dispatch => {
+        dispatch({type: 'START_ADDING_PETS'});
+    }
+}
