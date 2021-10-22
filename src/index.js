@@ -8,6 +8,7 @@ import {createStore, applyMiddleware} from 'redux';
 import {thunk } from 'redux-thunk';
 
 
+
 const rootReducer = () => console.log();
 
 const store = createStore(rootReducer,  
