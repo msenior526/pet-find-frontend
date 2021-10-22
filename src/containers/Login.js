@@ -4,12 +4,14 @@ class Login extends Component {
     state = {
         username: ''
     }
-    
+
     render() {
         return (
             <form>
-                <input type='text' value={this.state.username}></input>
-                <input type='password' value={this.state.password}></input>
+                <label for='username'>USERNAME</label>
+                <input type='text' name='username' value={this.state.username}></input>
+                <label for='password'>PASSWORD</label>
+                <input type='password' name='password' value={this.state.password}></input>
             </form>
         )
     }
