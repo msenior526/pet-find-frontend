@@ -11,6 +11,8 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Route exact path='/pets' component={Pets}/>
+          <Route exact path='/login' component={Login}/>
+          <Route exact path='/login' component={Signup}/>
         </div>
       </Router>
   );
