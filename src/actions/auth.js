@@ -9,7 +9,7 @@ export const getToken = () => {
 
 export const loginUser = (userCredentials) => {
     return dispatch => {
-        return fetch("http://localhost:3000/login", {
+        return fetch("http://localhost:3000/api/v1/login", {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
