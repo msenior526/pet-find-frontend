@@ -4,15 +4,14 @@ const initialState = {
     currentUser: {}
 }
 
-export const authReducer = (state = initialState, action) => {
+export default function authReducer(state = initialState, action){
     switch(action.type) {
         case 'AUTHENTICATED':
             return {
                 loggedIn: true,
                 authChecked: true,
                 currentUser: action.payload
-            }
-            
+            };
         default:
             return state;
     }

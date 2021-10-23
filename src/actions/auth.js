@@ -14,11 +14,11 @@ export const signupUser = (userCredentials) => {
             body: JSON.stringify({user: userCredentials})
         })
         .then(resp => {
-            debugger
             if (resp.ok) {
                 setToken(resp.headers.get("Authorization"));
-                return resp.json().then((userJson) =>
-                        dispatch({ type: 'AUTHENTICATED', payload: userJson })
+                return resp.json().then((userJson) => {
+                            dispatch({ type: 'AUTHENTICATED', payload: userJson })
+                        }
                     );
             } else {
                 return resp.json().then((errors) => {
