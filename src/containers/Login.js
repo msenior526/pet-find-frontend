@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class Login extends Component {
     state = {
-        username: ''
+        email: ''
     }
 
     handleChange = e => {
@@ -12,11 +12,11 @@ class Login extends Component {
     render() {
         return (
             <form>
-                <label for='username'>USERNAME</label>
+                <label for='email'>email</label>
                 <input 
                 type='text' 
-                name='username' 
-                value={this.state.username}
+                name='email' 
+                value={this.state.email}
                 onChange={this.handleChange}
                 ></input>
                 <label for='password'>PASSWORD</label>
