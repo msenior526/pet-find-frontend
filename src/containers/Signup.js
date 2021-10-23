@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {signupUser} from '../actions/auth';
 
 class Signup extends Component {
     state = {
@@ -52,4 +54,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default connect(Signup);
