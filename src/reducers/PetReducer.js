@@ -5,7 +5,12 @@ export function PetReducer(state = {
     switch(action.type) {
 
         case 'LOADING_DATA': 
-            return {...state, loading: true}
+            return {...state, loading: true};
+        case 'ADD_PETS':
+            return {
+                pets: action.payload,
+                loading: false
+            }
         case 'ADD_PET':
             return {...state, pets: [...state.pets, action.pet]};
         default:
