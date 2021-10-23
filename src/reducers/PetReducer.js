@@ -4,7 +4,7 @@ export function PetReducer(state = {
 }, action) {
     switch(action.type) {
 
-        case 'FETCH_PETS': 
+        case 'LOADING_DATA': 
             return {...state, loading: true}
         case 'ADD_PET':
             return {...state, pets: [...state.pets, action.pet]};
