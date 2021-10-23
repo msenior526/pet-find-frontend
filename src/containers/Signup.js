@@ -13,7 +13,8 @@ class Signup extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.signupUser(this.state)
+        .then(() => this.props.history.push("/"))
         this.setState({
             name: '',
             username: '',
