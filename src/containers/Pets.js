@@ -29,9 +29,15 @@ class Pets extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        pets: state.pets
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPets: () => dispatchEvent(fetchPets())
+        fetchPets: () => dispatch(fetchPets())
     }
 }
 
