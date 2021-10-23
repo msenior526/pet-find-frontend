@@ -9,13 +9,7 @@ class Pets extends Component {
     }
 
     componentDidMount() {
-        return fetch('http://localhost:3000/pets')
-        .then(resp => resp.json())
-        .then(json => {
-            this.setState({
-                pets: json
-            }, () => console.log(this.state))
-        })   
+        return this.props.fetchPets()
     }
 
     renderPets = () => {
