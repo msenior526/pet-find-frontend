@@ -3,6 +3,10 @@ export const setToken = (token) => {
     localStorage.setItem("lastLoginTime", new Date(Date.now()).getTime());
 }
 
+export const getToken = () => {
+    localStorage.getItem("token")
+}
+
 export const signupUser = (userCredentials) => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/users", {
