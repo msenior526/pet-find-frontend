@@ -35,6 +35,26 @@ export const loginUser = (userCredentials) => {
     }
 }
 
+export const checkAuth = () => {
+    return (dispatch) => {
+      return fetch("http://localhost:3001/api/v1/profile", {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: getToken()
+        }
+      }).then((resp) => {
+        if (resp.ok) {
+          return resp
+            .json()
+            .then((user) => dispatch({ type: 'AUTHENTICATED', payload: user }));
+        } else {
+          return Promise.reject(dispatch({ type: 'NOT_AUTHENTICATED' }));
+        }
+      });
+    };
+  };
+
 export const signupUser = (userCredentials) => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/users", {
