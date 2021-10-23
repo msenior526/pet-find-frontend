@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { PetCard }from '../containers/PetCard';
 import {connect} from 'react-redux';
+import { fetchPets } from "../actions/PetActions";
 
 class Pets extends Component {
     state = {
@@ -25,6 +26,12 @@ class Pets extends Component {
 
     render() {
         return <ol>{this.renderPets()}</ol>
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchPets: () => dispatchEvent(fetchPets())
     }
 }
 
