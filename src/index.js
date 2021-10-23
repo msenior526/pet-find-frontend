@@ -8,10 +8,15 @@ import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from "redux-devtools-extension";
 import authReducer from './reducers/auth';
+import { combineReducers } from 'redux';
+import { PetReducer } from './reducers/PetReducer';
 
 
-
-const store = createStore(authReducer, 
+const reducers = combineReducers({
+  authReducer,
+  PetReducer
+})
+const store = createStore(reducers, 
   composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
