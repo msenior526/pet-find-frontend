@@ -4,16 +4,13 @@ import {connect} from 'react-redux';
 import { fetchPets } from "../actions/PetActions";
 
 class Pets extends Component {
-    state = {
-        pets: []
-    }
 
     componentDidMount() {
         return this.props.fetchPets()
     }
 
     renderPets = () => {
-        return this.state.pets.map((pet, idx) => {
+        return this.props.pets.map((pet, idx) => {
             return <PetCard key={idx} {...pet}/>
         })
     }
@@ -25,7 +22,7 @@ class Pets extends Component {
 
 const mapStateToProps = state => {
     return {
-        pets: state.pets
+        pets: state.PetReducer.pets
     }
 }
 
