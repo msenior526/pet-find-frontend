@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 
 class Login extends Component {
     state = {
-        email: ''
+        email: '',
+        password: ''
     }
 
     handleChange = e => {
