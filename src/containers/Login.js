@@ -6,15 +6,24 @@ class Login extends Component {
         password: ''
     }
 
+    handleSubmit = e => {
+        e.preventDefault();
+        console.log(this.state);
+        this.setState({
+            email: '',
+            password: ''
+        })
+    }
+
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
-        })
+        }, () => console.log(this.state))
     }
 
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <label for='email'>email</label>
                 <input 
                 type='text' 
