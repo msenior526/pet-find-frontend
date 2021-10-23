@@ -12,6 +12,9 @@ export function addPet(pet) {
 
 export function fetchPets() {
     return dispatch => {
-        dispatch({type: 'START_ADDING_PETS'});
+        dispatch({type: 'LOADING_DATA'});
+        fetch("http://localhost:3000/pets")
+        .then(resp => resp.json())
+        .then(json => dispatch({type: 'ADD_PETS', payload: json}))
     }
 }
