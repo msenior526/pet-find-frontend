@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import PetCard from './containers/PetCard';
+import { PetCard }from '../containers/PetCard';
 
 class Pets extends Component {
     state = {
@@ -17,13 +17,13 @@ class Pets extends Component {
     }
 
     renderPets = () => {
-        this.state.pets.map((pet, idx) => {
-            debugger
-            return <li><PetCard /></li>
+        return this.state.pets.map((pet, idx) => {
+            return <PetCard key={idx} {...pet}/>
         })
     }
+
     render() {
-        return <div>{this.renderPets()}</div>
+        return <ol>{this.renderPets()}</ol>
     }
 }
 
