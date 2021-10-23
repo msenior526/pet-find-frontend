@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { PetCard }from '../containers/PetCard';
+import {connect} from 'react-redux';
 
 class Pets extends Component {
     state = {
@@ -27,4 +28,4 @@ class Pets extends Component {
     }
 }
 
-export default Pets;
+export default connect(mapStateToProps, mapDispatchToProps)(Pets);
