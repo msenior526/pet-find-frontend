@@ -42,7 +42,7 @@ export const loginUser = (userCredentials) => {
 
 export const checkAuth = () => {
     return (dispatch) => {
-      return fetch("http://localhost:3001/api/v1/profile", {
+      return fetch("http://localhost:3000/api/v1/profile", {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -54,7 +54,11 @@ export const checkAuth = () => {
             .json()
             .then((user) => dispatch({ type: 'AUTHENTICATED', payload: user }));
         } else {
-          return Promise.reject(dispatch({ type: 'NOT_AUTHENTICATED' }));
+            return resp.json()
+            .then((errors) => {
+                dispatch({ type: 'NOT_AUTHENTICATED' });
+                return Promise.reject(errors);
+            })
         }
       });
     };

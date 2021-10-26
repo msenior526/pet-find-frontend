@@ -1,12 +1,28 @@
+import { getToken } from "./auth";
+
 export function addPet(pet) {
-    return {
-        type: 'ADD_PET',
-        pet: {
-            name: pet.name,
-            age: pet.age,
-            species: pet.species,
-            gender: pet.gender
-        }
+    return dispatch => {
+        dispatch({type: 'LOADIMG_DATA'});
+        fetch('http://localhost:3000/pets', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: getToken()
+            },
+            body: pet
+        }).then(resp => {
+            if (resp.ok) {
+                return resp.json()
+                .then(json => console.log(json))
+            } else {
+                return resp.json()
+                .then((errors) => {
+                    dispatch({type: 'ERROR', payload: errors})
+                    return Promise.reject(errors);
+                });
+            }
+        });
     }
 }
 
