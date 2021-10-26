@@ -5,6 +5,10 @@ import Login from "../containers/Login";
 
 function withAuth(WrappedComponent) {
     class Wrapper extends React.Component {
+        componentDidMount() {
+            this.props.checkAuth();
+        }
+        
         render() {
             if (!this.props.authChecked) {
                 return <h3>LOADING</h3>;
