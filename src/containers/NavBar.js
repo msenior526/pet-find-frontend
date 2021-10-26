@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
+import { checkAuth } from '../actions/auth';
 
 class Navbar extends Component {
     render() {
@@ -26,4 +27,10 @@ class Navbar extends Component {
     }
 }
 
-export default connect(Navbar);
+const mapDispatchToProps = dispatch => {
+    return {
+        checkAuth: () => dispatch(checkAuth())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Navbar);
