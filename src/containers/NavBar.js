@@ -17,6 +17,9 @@ class Navbar extends Component {
                 <NavLink to='/profile'>
                     Profile
                 </NavLink>
+                <NavLink to='/login'>
+                    Login
+                </NavLink>
             </div>
         )
     }
