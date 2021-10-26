@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
+import {addPet} from '../reducers/PetReducer';
 
 class NewPet extends Component {
     render() {
