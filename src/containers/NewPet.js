@@ -10,6 +10,17 @@ class NewPet extends Component {
         gender: ''
     }
 
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.addPet(this.state)
+        this.setState({
+            petName: '',
+            age: '',
+            species: '',
+            gender: ''
+        })
+    }
+
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
