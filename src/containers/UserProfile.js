@@ -2,7 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const UserProfile = props => (
-    <div></div>
+    <div>{props.currentUser.name}</div>
 )
 
-export default connect(UserProfile);
+const mapStateToProps = (state) => {
+ return {
+     currentUser: state.authReducer.currentUser.user
+ }
+}
+
+export default connect(mapStateToProps)(UserProfile);
