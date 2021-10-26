@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import Login from './containers/Login';
 import Signup from './containers/Signup';
 import UserProfile from './containers/UserProfile';
+import withAuth from './components/WithAuth';
 
 class App extends Component {
   render() {
