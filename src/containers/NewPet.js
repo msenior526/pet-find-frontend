@@ -3,8 +3,19 @@ import {connect} from 'react-redux';
 import {addPet} from '../reducers/PetReducer';
 
 class NewPet extends Component {
+    state = {
+        name: '',
+        age: '',
+        species: '',
+        gender: ''
+    }
+    
     render() {
-        return <div></div>
+        return (
+            <form>
+
+            </form>
+        )
     }
 }
 
