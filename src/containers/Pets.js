@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import { PetCard }from '../containers/PetCard';
 import {connect} from 'react-redux';
 import { fetchPets } from "../actions/PetActions";
-import UserProfile from "./UserProfile";
 
 class Pets extends Component {
 
@@ -17,12 +16,8 @@ class Pets extends Component {
     }
 
     render() {
-        
         return (
-            <>
-            <UserProfile />
         <ol>{this.renderPets()}</ol>
-        </>
         )
     }
 }
