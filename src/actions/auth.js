@@ -4,7 +4,12 @@ export const setToken = (token) => {
 }
 
 export const getToken = () => {
-    localStorage.getItem("token")
+    const now = new Date(Date.now()).getTime();
+    const thirtyMinutes = 1000 * 60 * 30;
+    const timeSinceLastLogin = now - localStorage.getItem("lastLoginTime");
+    if (timeSinceLastLogin < thirtyMinutes) {
+      return localStorage.getItem("token");
+    }
 }
 
 export const loginUser = (userCredentials) => {
