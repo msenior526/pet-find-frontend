@@ -12,6 +12,12 @@ export default function authReducer(state = initialState, action){
                 authChecked: true,
                 currentUser: action.payload
             };
+        case 'NOT_AUTHENTICATED':
+            return {
+                authChecked: true,
+                loggedIn: false,
+                currentUser: {}
+            }
         default:
             return state;
     }
