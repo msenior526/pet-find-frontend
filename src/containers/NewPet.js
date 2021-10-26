@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {connect} from 'react-redux';
 
 class NewPet extends Component {
     render() {
@@ -6,4 +7,4 @@ class NewPet extends Component {
     }
 }
 
-export default NewPet;
+export default connect(NewPet);
