@@ -17,7 +17,7 @@ class App extends Component {
           <Route exact path='/pets' component={Pets}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/signup' component={Signup}/>
-          <Route exact path='/profile' component={UserProfile}/>
+          <Route exact path='/profile' component={withAuth(UserProfile)}/>
           home
         </div>
       </Router>
