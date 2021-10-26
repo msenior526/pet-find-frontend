@@ -2,7 +2,7 @@ import { getToken } from "./auth";
 
 export function addPet(pet) {
     return dispatch => {
-        dispatch({type: 'LOADIMG_DATA'});
+        dispatch({type: 'LOADING_DATA'});
         fetch('http://localhost:3000/pets', {
             method: 'POST',
             headers: {
@@ -14,7 +14,7 @@ export function addPet(pet) {
         }).then(resp => {
             if (resp.ok) {
                 return resp.json()
-                .then(json => console.log(json))
+                .then(json => dispatch({type: 'ADD_PET', payload: json}))
             } else {
                 return resp.json()
                 .then((errors) => {
