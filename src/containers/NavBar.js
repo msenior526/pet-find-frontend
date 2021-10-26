@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 class Navbar extends Component {
     render() {
@@ -25,4 +26,4 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+export default connect(Navbar);

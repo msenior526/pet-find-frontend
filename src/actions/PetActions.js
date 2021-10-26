@@ -15,6 +15,6 @@ export function fetchPets() {
         dispatch({type: 'LOADING_DATA'});
         fetch("http://localhost:3000/pets")
         .then(resp => resp.json())
-        .then(json => dispatch({type: 'ADD_PETS', payload: json}))
+        .then(json => dispatch({type: 'ADD_PETS', payload: json} ))
     }
 }
