@@ -7,4 +7,10 @@ class NewPet extends Component {
     }
 }
 
-export default connect(NewPet);
+const mapDispatchToProps = dispatch => {
+    return {
+        addPet: pet => dispatch(addPet(pet))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(NewPet);
