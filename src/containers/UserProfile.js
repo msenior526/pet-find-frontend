@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import NewPet from './NewPet';
 
-const UserProfile = props => (
+const UserProfile = props => {
+    return (
     <div>
         <h2>{props.currentUser.name}</h2>
-        <h4>Click to add new pet</h4>
+        <NewPet />
     </div>
-)
+)}
 
 const mapStateToProps = (state) => {
  return {
