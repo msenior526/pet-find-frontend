@@ -40,7 +40,7 @@ class NewPet extends Component {
     
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input type='text' name='petName' value={this.state.name} onChange={this.handleChange}></input>
                 <input type='number' name='age' value={this.state.age} onChange={this.handleChange}></input>
                 <input type='text' name='species' value={this.state.species} onChange={this.handleChange}></input>
