@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import NewPet from './NewPet';
 
 class UserProfile extends Component {
+
+    componentDidMount() {
+        this.props.checkAuth()
+    }
     render(){
         return (
             <div>
