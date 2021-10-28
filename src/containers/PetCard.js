@@ -19,4 +19,11 @@ class PetCard extends Component {
                 {this.confirmUser ? <button onClick={this.handleClick}>delete pet</button> : null}
             </li>)}
 }
-export default connect()(PetCard);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        deletePet: pet => dispatch(deletePet(pet)) 
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PetCard);
