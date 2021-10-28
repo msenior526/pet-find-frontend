@@ -6,15 +6,18 @@ export function addPet(pet) {
         fetch('http://localhost:3000/pets', {
             method: 'POST',
             headers: {
+                "Access-Control-Allow-Headers": 'Authorization',
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                Authorization: getToken()
+                "Authorization": `Bearer ${getToken()}`
             },
-            body: pet
+            body: JSON.stringify({ pet: pet })
         }).then(resp => {
             if (resp.ok) {
                 return resp.json()
-                .then(json => dispatch({type: 'ADD_PET', payload: json}))
+                .then(json => {
+                    dispatch({type: 'ADD_PET', payload: json.pet
+                })})
             } else {
                 return resp.json()
                 .then((errors) => {

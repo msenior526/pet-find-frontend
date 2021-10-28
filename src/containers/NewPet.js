@@ -4,7 +4,7 @@ import {addPet} from '../actions/PetActions';
 
 class NewPet extends Component {
     state = {
-        petName: '',
+        name: '',
         age: '',
         species: '',
         gender: ''
@@ -14,7 +14,7 @@ class NewPet extends Component {
         e.preventDefault();
         this.props.addPet(this.state)
         this.setState({
-            petName: '',
+            name: '',
             age: '',
             species: '',
             gender: ''
@@ -32,7 +32,7 @@ class NewPet extends Component {
         return (
             <select name='gender' value={this.state.gender} onChange={this.handleChange}>
                 {genders.map((gender, idx) => {
-                    return <option key ={idx} value={gender}>{gender}</option>
+                    return <option key ={idx} value={gender} >{gender}</option>
                 })}
             </select>
         )
@@ -41,7 +41,7 @@ class NewPet extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input type='text' name='petName' value={this.state.name} onChange={this.handleChange}></input>
+                <input type='text' name='name' value={this.state.name} onChange={this.handleChange}></input>
                 <input type='number' name='age' value={this.state.age} onChange={this.handleChange}></input>
                 <input type='text' name='species' value={this.state.species} onChange={this.handleChange}></input>
                 {this.renderGender()}

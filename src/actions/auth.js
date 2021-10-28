@@ -1,6 +1,7 @@
 export const setToken = (token) => {
-    localStorage.setItem('token', token);
+    localStorage.setItem('jwt', token);
     localStorage.setItem("lastLoginTime", new Date(Date.now()).getTime());
+    // debugger
 }
 
 export const getToken = () => {
@@ -8,7 +9,7 @@ export const getToken = () => {
     const thirtyMinutes = 1000 * 60 * 30;
     const timeSinceLastLogin = now - localStorage.getItem("lastLoginTime");
     if (timeSinceLastLogin < thirtyMinutes) {
-      return localStorage.getItem("token");
+      return localStorage.getItem("jwt");
     }
 }
 
@@ -24,19 +25,23 @@ export const loginUser = (userCredentials) => {
         })
         .then((resp) => {
             if (resp.ok) {
-                setToken(resp.headers.get("Authorization"));
+                // console.log(resp.headers.set('Authorization'))
+                // setToken(resp.headers.set("Authorization"));
                 return resp
-                    .json()
-                    .then((userJson) =>
+                .json()
+                .then((userJson) => {
+                    console.log(userJson)
+                    setToken(userJson.jwt)
                         dispatch({ type: 'AUTHENTICATED', payload: userJson })
-                    );
+                    });
             } else {
                 return resp.json().then((errors) => {
                     dispatch({ type: 'NOT_AUTHENTICATED' });
                     return Promise.reject(errors);
                 });
             }
-        });
+        })
+        .catch(err => console.log(err));
     }
 }
 
@@ -44,11 +49,13 @@ export const checkAuth = () => {
     return (dispatch) => {
       return fetch("http://localhost:3000/api/v1/profile", {
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: getToken()
+            "Access-Control-Allow-Headers": 'Authorization',
+            "Authorization": `Bearer ${localStorage.getItem('jwt')}`,
+          'Accept': "application/json",
+          "Content-Type": "application/json"
         }
       }).then((resp) => {
+        //   debugger
         if (resp.ok) {
           return resp
             .json()
