@@ -13,6 +13,8 @@ export function PetReducer(state = {
             }
         case 'ADD_PET':
             return {...state, pets: [...state.pets, action.payload]};
+        case 'DELETE_PET':
+            return {state}
         default:
             return state
     }
