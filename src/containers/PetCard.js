@@ -7,7 +7,7 @@ class PetCard extends Component {
     confirmUser = this.props.currentUser.user.username === this.props.owner.username;
 
     handleClick = e => {
-
+        this.props.deletePet(this.props.pet.id)
     }
 
     render() {
