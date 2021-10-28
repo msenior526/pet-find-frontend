@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
+import {deletePet} from "./actions/PetActions";
 
 
 class PetCard extends Component {
