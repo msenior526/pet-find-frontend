@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
 
 
 class PetCard extends Component {
     confirmUser = this.props.currentUser.user.username === this.props.owner.username;
+
+    handleClick = e => {
+
+    }
 
     render() {
         return (
@@ -14,4 +19,4 @@ class PetCard extends Component {
                 {this.confirmUser ? <button onClick={this.handleClick}>delete pet</button> : null}
             </li>)}
 }
-export default PetCard;
+export default connect()(PetCard);
