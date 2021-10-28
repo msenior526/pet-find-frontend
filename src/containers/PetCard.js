@@ -1,11 +1,17 @@
-export default function PetCard(props) {
-    const confirmUser = props.currentUser.user.username === props.owner.username;
-    return (
-    <li>
-        <h5>{props.name}</h5>
-        <p>{props.age}</p>
-        <p>{props.species}</p>
-        <p>{props.gender}</p>
-        {confirmUser ? <button>delete pet</button> : null}
-    </li>
-)}
+import React, { Component } from "react";
+
+
+class PetCard extends Component {
+    confirmUser = this.props.currentUser.user.username === this.props.owner.username;
+
+    render() {
+        return (
+            <li>
+                <h5>{this.props.name}</h5>
+                <p>{this.props.age}</p>
+                <p>{this.props.species}</p>
+                <p>{this.props.gender}</p>
+                {this.confirmUser ? <button onClick={this.handleClick}>delete pet</button> : null}
+            </li>)}
+}
+export default PetCard;
