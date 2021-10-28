@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { PetCard }from '../containers/PetCard';
+import  PetCard from '../containers/PetCard';
 import {connect} from 'react-redux';
 import { fetchPets } from "../actions/PetActions";
 
@@ -11,7 +11,7 @@ class Pets extends Component {
 
     renderPets = () => {
         return this.props.pets.map((pet, idx) => {
-            return <PetCard key={idx} {...pet}/>
+            return <PetCard key={idx} {...pet} currentUser={this.props.currentUser}/>
         })
     }
 
@@ -24,7 +24,8 @@ class Pets extends Component {
 
 const mapStateToProps = state => {
     return {
-        pets: state.PetReducer.pets
+        pets: state.PetReducer.pets,
+        currentUser: state.authReducer.currentUser
     }
 }
 
