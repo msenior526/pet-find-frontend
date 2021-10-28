@@ -29,6 +29,10 @@ export function addPet(pet) {
     }
 }
 
+export function deletePet(pet) {
+    
+}
+
 export function fetchPets() {
     return dispatch => {
         dispatch({type: 'LOADING_DATA'});
