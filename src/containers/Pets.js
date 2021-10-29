@@ -11,7 +11,9 @@ class Pets extends Component {
 
     renderPets = () => {
         return this.props.pets.map((pet, idx) => {
-            return <PetCard key={idx} {...pet} currentUser={this.props.currentUser}/>
+            return <PetCard key={idx} {...pet} 
+            currentUser={this.props.currentUser} 
+            loggedIn={this.props.loggedIn}/>
         })
     }
 
@@ -25,7 +27,8 @@ class Pets extends Component {
 const mapStateToProps = state => {
     return {
         pets: state.PetReducer.pets,
-        currentUser: state.authReducer.currentUser
+        currentUser: state.authReducer.currentUser,
+        loggedIn: state.authReducer.loggedIn
     }
 }
 

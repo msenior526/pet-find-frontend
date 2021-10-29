@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import {deletePet} from "./actions/PetActions";
+import {deletePet} from "../actions/PetActions";
 
 
 class PetCard extends Component {
-    confirmUser = this.props.currentUser.user.username === this.props.owner.username;
 
+    confirmUser = () => {
+        if (this.props.loggedIn) {
+            return this.props.currentUser.user.username === this.props.owner.username;
+        } else { return null }
+    }
+    
     handleClick = e => {
         this.props.deletePet(this.props.pet.id)
     }
@@ -17,7 +22,7 @@ class PetCard extends Component {
                 <p>{this.props.age}</p>
                 <p>{this.props.species}</p>
                 <p>{this.props.gender}</p>
-                {this.confirmUser ? <button onClick={this.handleClick}>delete pet</button> : null}
+                {this.confirmUser() ? <button onClick={this.handleClick}>delete pet</button> : null}
             </li>)}
 }
 
