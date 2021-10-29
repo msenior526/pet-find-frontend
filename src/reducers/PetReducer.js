@@ -14,7 +14,8 @@ export function PetReducer(state = {
         case 'ADD_PET':
             return {...state, pets: [...state.pets, action.payload]};
         case 'DELETE_PET':
-            return {state}
+            const newPets = state.pets.filter(pet => pet.id !== action.payload)
+            return {...state, pets: newPets}
         default:
             return state
     }

@@ -42,9 +42,9 @@ export function deletePet(petId) {
             }
         }).then(resp => {
             if (resp.ok) {
-                debugger
-                return resp.json(json => {
-                    dispatch({type: 'DELETE_PET', payload: json})
+                return resp.json()
+                .then(json => {
+                    dispatch({type: 'DELETE_PET', payload: petId})
                 })
             }
         })
