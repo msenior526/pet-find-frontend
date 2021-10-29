@@ -12,7 +12,7 @@ class PetCard extends Component {
     }
     
     handleClick = e => {
-        this.props.deletePet(this.props.pet.id)
+        this.props.deletePet(this.props.id)
     }
 
     render() {
