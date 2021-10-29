@@ -29,8 +29,26 @@ export function addPet(pet) {
     }
 }
 
-export function deletePet(pet) {
-    
+export function deletePet(petId) {
+    return dispatch => {
+        dispatch({type: 'LOADING_DATA'});
+        fetch(`http://localhost:3000/pets/${petId}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                "Access-Control-Allow-Headers": 'Authorization',
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${getToken()}`
+            }
+        }).then(resp => {
+            if (resp.ok) {
+                debugger
+                return resp.json(json => {
+                    dispatch({type: 'DELETE_PET', payload: json})
+                })
+            }
+        })
+    }
 }
 
 export function fetchPets() {
