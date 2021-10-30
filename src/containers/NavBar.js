@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import { checkAuth } from '../actions/auth';
 
 class Navbar extends Component {
-    // componentDidMount() {
-    //     this.props.checkAuth();
-    // }
+    componentDidMount() {
+        this.props.checkAuth();
+    }
 
     render() {
         return (
