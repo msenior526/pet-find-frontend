@@ -17,7 +17,7 @@ class UserProfile extends Component {
                 <>
                 <div>
                     <h2>{this.props.currentUser.name}</h2>
-                    <SavedPets />
+                    <SavedPets pets={this.props.fetchSavedPets()}/>
                     <NewPet />
                 </div>
                 </>
