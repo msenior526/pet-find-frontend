@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PetCard from "../containers/PetCard";
+import {connect} from 'react-redux';
 
 class SavedPets extends Component {
     componentDidMount = () => {
@@ -15,4 +16,4 @@ class SavedPets extends Component {
     }
 }
 
-export default SavedPets;
+export default connect(mapStateToProps, mapDispatchToProps)(SavedPets);
