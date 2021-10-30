@@ -9,6 +9,7 @@ class Navbar extends Component {
     }
 
     render() {
+        if 
         return (
             <div>
                 <NavLink to='/'>
@@ -31,10 +32,18 @@ class Navbar extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return { 
+        authChecked: state.authReducer.authChecked,
+        loggedIn: state.authReducer.loggedIn,
+        currentUser: state.authReducer.currentUser
+    };
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         checkAuth: () => dispatch(checkAuth())
     }
 }
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
