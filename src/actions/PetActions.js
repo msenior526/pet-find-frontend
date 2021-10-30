@@ -59,3 +59,26 @@ export function fetchPets() {
         .then(json => dispatch({type: 'ADD_PETS', payload: json} ))
     }
 }
+
+export function fetchSavedPets() {
+    return dispatch => {
+        dispatch({type: 'LOADING_DATA'});
+            fetch('http://localhost:3000/saved_pets', {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    "Access-Control-Allow-Headers": 'Authorization',
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${getToken()}`
+                }
+            }).then(resp => {
+                if (resp.ok) {
+                    return resp.json()
+                    .then(json => {
+                        console.log(json)
+                        // dispatch({type: 'ALL_SAVED_PETS', payload: json})
+                    })
+                }
+            })
+    }
+}
