@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { checkAuth } from '../actions/auth';
 import NewPet from './NewPet';
-import { fetchSavedPets }  from '../actions/PetActions';
 import SavedPets from '../components/SavedPets';
 
 class UserProfile extends Component {
@@ -43,8 +42,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        checkAuth: () => dispatch(checkAuth()),
-        fetchSavedPets: () => dispatch(fetchSavedPets())
+        checkAuth: () => dispatch(checkAuth())
     }
 }
 
