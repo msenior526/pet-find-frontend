@@ -8,17 +8,25 @@ class SavedPets extends Component {
         this.props.fetchSavedPets();
     }
 
+    renderPets = () => {
+        return this.props.savedPets.map((pet, idx) => {
+            return <PetCard key={idx} {...pet}/>
+        })
+    }
+
     render() {
         return (
             <div>
-                <PetCard />
+                {this.renderPets()}
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-
+    return {
+        savedPets: state.savedPetReducer.savedPets
+    }
 }
 
 const mapDispatchToProps = dispatch => {
