@@ -5,7 +5,7 @@ import { fetchSavedPets } from "../actions/PetActions";
 
 class SavedPets extends Component {
     componentDidMount = () => {
-        // this.props.fetchSavedPets();
+        this.props.fetchSavedPets();
     }
 
     render() {

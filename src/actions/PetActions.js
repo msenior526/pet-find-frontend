@@ -76,7 +76,7 @@ export function fetchSavedPets() {
                     return resp.json()
                     .then(json => {
                         console.log(json)
-                        // dispatch({type: 'ALL_SAVED_PETS', payload: json})
+                        dispatch({type: 'GET_PETS', payload: json})
                     })
                 }
             })
