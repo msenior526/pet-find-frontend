@@ -4,7 +4,7 @@ export function savedPetReducer(state = {
 }, action) {
     switch (action.type) {
         case 'GET_PETS': 
-            return {savedPets: [...state.savedPets, action.payload]}
+            return {savedPets: action.payload}
         default: 
             return state;
     }
