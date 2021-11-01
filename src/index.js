@@ -10,11 +10,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import authReducer from './reducers/auth';
 import { combineReducers } from 'redux';
 import { PetReducer } from './reducers/PetReducer';
+import { savedPetReducer } from './reducers/savedPetReducer';
 
 
 const reducers = combineReducers({
   authReducer,
-  PetReducer
+  PetReducer,
+  savedPetReducer
 })
 const store = createStore(reducers, 
   composeWithDevTools(applyMiddleware(thunk)));
