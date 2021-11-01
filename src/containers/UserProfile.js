@@ -10,12 +10,17 @@ class UserProfile extends Component {
         this.props.checkAuth();
     }
 
+    handleLogout = () => {
+        this.props.logoutUser();
+    }
+ 
     renderProfile = () => {
         if (this.props.authChecked) {
             return (this.props.loggedIn) ? (
                 <>
                 <div>
                     <h2>{this.props.currentUser.name}</h2>
+                    <button onClick={this.handleLogout}>LOGOUT</button>
                     <SavedPets/>
                     <NewPet />
                 </div>
