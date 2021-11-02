@@ -97,3 +97,7 @@ export const signupUser = (userCredentials) => {
         })
     };
 }
+
+export const logoutUser = () => {
+
+}
