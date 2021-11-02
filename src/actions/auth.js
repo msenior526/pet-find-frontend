@@ -99,5 +99,20 @@ export const signupUser = (userCredentials) => {
 }
 
 export const logoutUser = () => {
-
+    return dispatch => {
+        return fetch('http://localhost:3000/logout', {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Headers': 'Authorization',
+                'Authorization': `Bearer ${getToken()}`
+            }
+        }).then(resp => {
+            if (resp.ok) {
+                resp.json()
+                .then(json => console.log(json))
+            }
+        })
+    }
 }
