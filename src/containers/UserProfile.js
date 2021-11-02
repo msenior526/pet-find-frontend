@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { checkAuth } from '../actions/auth';
 import NewPet from './NewPet';
 import SavedPets from '../components/SavedPets';
+import { logoutUser } from '../actions/auth';
 
 class UserProfile extends Component {
 
