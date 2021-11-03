@@ -3,7 +3,6 @@ export const LogoutButton = props => {
     const history = useHistory();
   
     const handleClick = () => {
-        debugger
         console.log(props.logout());
         history.push("/")
     };
