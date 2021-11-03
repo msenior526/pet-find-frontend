@@ -8,6 +8,28 @@ class Navbar extends Component {
         this.props.checkAuth();
     }
 
+    renderLoggedInLinks = () => {
+        if (this.props.authChecked) {
+            return this.props.loggedIn ? (
+                <>
+                <NavLink to='/profile'>
+                    Profile
+                </NavLink>
+                </>
+            ) : (
+                <>
+                <NavLink to='/signup'>
+                    Signup
+                </NavLink>
+                
+                <NavLink to='/login'>
+                    Login
+                </NavLink>
+                </>
+            )
+        }
+    }
+
     render() {
         return (
             <div>
@@ -17,15 +39,7 @@ class Navbar extends Component {
                 <NavLink to='/pets'>
                     All Pets
                 </NavLink>
-                <NavLink to='/signup'>
-                    Signup
-                </NavLink>
-                <NavLink to='/profile'>
-                    Profile
-                </NavLink>
-                <NavLink to='/login'>
-                    Login
-                </NavLink>
+                {this.renderLoggedInLinks()}
             </div>
         )
     }
