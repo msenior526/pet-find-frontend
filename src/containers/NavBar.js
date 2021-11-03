@@ -2,27 +2,33 @@ import React, {Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { checkAuth } from '../actions/auth';
+import { logoutUser } from '../actions/auth';
+import {LogoutButton} from '../components/LogoutButton';
 
 class Navbar extends Component {
     componentDidMount() {
         this.props.checkAuth();
     }
 
-    renderLoggedInLinks = () => {
+     renderLoggedInLinks = () => {
         if (this.props.authChecked) {
             return this.props.loggedIn ? (
                 <>
-                <NavLink to='/profile'>
+                <NavLink to='/profile'
+                exact>
                     Profile
                 </NavLink>
+                <LogoutButton logout={this.props.logoutUser}/>
                 </>
             ) : (
                 <>
-                <NavLink to='/signup'>
+                <NavLink to='/signup'
+                exact>
                     Signup
                 </NavLink>
                 
-                <NavLink to='/login'>
+                <NavLink to='/login'
+                exact>
                     Login
                 </NavLink>
                 </>
@@ -55,7 +61,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        checkAuth: () => dispatch(checkAuth())
+        checkAuth: () => dispatch(checkAuth()),
+        logoutUser: () => dispatch(logoutUser())
     }
 }
 

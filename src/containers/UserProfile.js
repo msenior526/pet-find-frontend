@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { checkAuth } from '../actions/auth';
 import NewPet from './NewPet';
 import SavedPets from '../components/SavedPets';
-import { logoutUser } from '../actions/auth';
 
 class UserProfile extends Component {
 
@@ -11,17 +10,12 @@ class UserProfile extends Component {
         this.props.checkAuth();
     }
 
-    handleLogout = () => {
-        this.props.logoutUser();
-    }
- 
     renderProfile = () => {
         if (this.props.authChecked) {
             return (this.props.loggedIn) ? (
                 <>
                 <div>
                     <h2>{this.props.currentUser.name}</h2>
-                    <button onClick={this.handleLogout}>LOGOUT</button>
                     <SavedPets/>
                     <NewPet />
                 </div>
@@ -48,8 +42,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        checkAuth: () => dispatch(checkAuth()),
-        logoutUser: userId => dispatch(logoutUser(userId))
+        checkAuth: () => dispatch(checkAuth())
     }
 }
 
