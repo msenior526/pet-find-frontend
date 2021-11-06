@@ -27,7 +27,7 @@ class Pets extends Component {
 const mapStateToProps = state => {
     return {
         pets: state.PetReducer.pets,
-        currentUser: state.authReducer.currentUser,
+        currentUser: state.authReducer.currentUser.user,
         loggedIn: state.authReducer.loggedIn
     }
 }

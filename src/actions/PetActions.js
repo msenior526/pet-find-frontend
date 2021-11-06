@@ -75,8 +75,7 @@ export function fetchSavedPets() {
                 if (resp.ok) {
                     return resp.json()
                     .then(json => {
-                        const pets = json.map(savedPet => savedPet.pet)
-                        dispatch({type: 'GET_PETS', payload: pets})
+                        dispatch({type: 'GET_PETS', payload: json})
                     })
                 }
             })

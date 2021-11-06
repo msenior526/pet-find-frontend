@@ -7,22 +7,36 @@ class PetCard extends Component {
 
     confirmUser = () => {
         if (this.props.loggedIn) {
-            return this.props.currentUser.user.username === this.props.owner.username;
+            // debugger
+            return this.props.currentUser.id === this.props.user_id;
         } else { return null }
     }
-    
-    handleClick = e => {
+
+    handleDelete = e => {
         this.props.deletePet(this.props.id)
     }
 
+    favoriteButtonText = () => {
+        if (this.props.loggedIn) {
+            // debugger
+            const ids = this.props.currentUser.pets_saved.map(pet => {
+                return pet.id
+            })
+            return ids.includes(this.props.id) ? 
+            ("remove from favorites") : ("add to favorites")
+        } else {return "add to favorites"}
+    }
+
     render() {
+        // debugger
         return (
             <li>
                 <h5>{this.props.name}</h5>
                 <p>{this.props.age}</p>
                 <p>{this.props.species}</p>
                 <p>{this.props.gender}</p>
-                {this.confirmUser() ? <button onClick={this.handleClick}>delete pet</button> : null}
+                <button>{this.favoriteButtonText()}</button>
+                {this.confirmUser() ? <button onClick={this.handleDelete}>delete pet</button> : null}
             </li>)}
 }
 

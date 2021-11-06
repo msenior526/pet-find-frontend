@@ -9,9 +9,13 @@ class SavedPets extends Component {
     }
 
     renderPets = () => {
-        return this.props.savedPets.map((pet, idx) => {
-            return <PetCard key={idx} {...pet}/>
-        })
+        if (this.props.loggedIn === true) {
+            // debugger
+            return this.props.currentUser.pets_saved.map((pet, idx) => {
+                return <PetCard key={idx} {...pet} currentUser={this.props.currentUser}
+                    loggedIn={this.props.loggedIn}/>
+            })
+        } else {return null}
     }
 
     render() {
@@ -25,6 +29,7 @@ class SavedPets extends Component {
 
 const mapStateToProps = state => {
     return {
+        currentUser: state.authReducer.currentUser.user,
         savedPets: state.savedPetReducer.savedPets
     }
 }
