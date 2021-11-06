@@ -81,3 +81,9 @@ export function fetchSavedPets() {
             })
     }
 }
+
+export function addFavorite(pet) {
+    return dispatch => {
+        fetch(`http://localhost:3000/saved_pets/${pet.id}`)
+    }
+}
