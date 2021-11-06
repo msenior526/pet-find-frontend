@@ -105,6 +105,19 @@ export function addFavorite(pet) {
 
 export function deleteFavorite(pet) {
     return dispatch => {
-        fetch(`http://localhost:3000/saved_pets/${pet.id}`)
+        fetch(`http://localhost:3000/saved_pets/${pet}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': "application/json",
+                'Access-Control-Allow-Header': 'Authorization',
+                'Authorization': `Bearer ${getToken()}`
+            }
+        }).then(resp => {
+            if (resp.ok) {
+                resp.json()
+                .then(json => console.log(json))
+            }
+        })
     }
 }

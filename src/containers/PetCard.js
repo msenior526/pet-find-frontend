@@ -20,7 +20,9 @@ class PetCard extends Component {
     
     handleFavorite = e => {
         if (e.target.textContent === 'remove from favorites') {
-            return this.props.deleteFavorite(this.props.id)
+            const fav = this.props.currentUser.saved_pets.find(pet => {
+                return pet.pet_id === this.props.id})
+            return this.props.deleteFavorite(fav.id)
         } else if (e.target.textContent === 'add to favorites') {
             this.props.addFavorite(this.props.id);
             return e.target.textContent = 'remove from favorites'
