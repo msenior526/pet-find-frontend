@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import {deletePet} from "../actions/PetActions";
-import {addFavorite} from "..actions/PetActions";
-import {deleteFavorite} from "..actions/PetActions";
+import {addFavorite} from "../actions/PetActions";
+import {deleteFavorite} from "../actions/PetActions";
 
 
 class PetCard extends Component {
@@ -19,11 +19,11 @@ class PetCard extends Component {
     }
     
     handleFavorite = e => {
-        debugger
         if (e.target.textContent === 'remove from favorites') {
-            return this.props.deleteFavorite()
+            return this.props.deleteFavorite(this.props.id)
         } else if (e.target.textContent === 'add to favorites') {
-            return this.props.addFavorite()
+            this.props.addFavorite(this.props.id);
+            return e.target.textContent = 'remove from favorites'
         }
     }
 

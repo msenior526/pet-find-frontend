@@ -84,7 +84,22 @@ export function fetchSavedPets() {
 
 export function addFavorite(pet) {
     return dispatch => {
-        fetch(`http://localhost:3000/saved_pets/${pet.id}`)
+        // debugger
+        fetch('http://localhost:3000/saved_pets', {
+            method: "POST",
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': "application/json",
+                'Access-Control-Allow-Header': 'Authorization',
+                'Authorization': `Bearer ${getToken()}`
+            },
+            body: JSON.stringify({saved_pet: {pet_id: pet}})
+        }).then(resp => {
+            if (resp.ok) {
+                resp.json()
+                .then(json => console.log(json))
+            }
+        })
     }
 }
 
