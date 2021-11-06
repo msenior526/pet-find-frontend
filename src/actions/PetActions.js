@@ -87,3 +87,9 @@ export function addFavorite(pet) {
         fetch(`http://localhost:3000/saved_pets/${pet.id}`)
     }
 }
+
+export function deleteFavorite(pet) {
+    return dispatch => {
+        fetch(`http://localhost:3000/saved_pets/${pet.id}`)
+    }
+}
